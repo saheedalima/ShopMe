@@ -6,6 +6,7 @@ List<ProductModel> productModelFromJson(String str) => List<ProductModel>.from(j
 String productModelToJson(List<ProductModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class ProductModel {
+
   int? id;
   String? title;
   double? price;
@@ -67,7 +68,6 @@ class Rating {
     "count": count,
   };
 }
-
 class EnumValues<T> {
   Map<String, T> map;
   late Map<T, String> reverseMap;
