@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lottie/lottie.dart';
 
+import '../Firebase/Login.dart';
 import '../Firebase/Registration.dart';
 
 class onboarding extends StatelessWidget {
@@ -48,13 +49,13 @@ class onboarding extends StatelessWidget {
           ],
           onSkip: ()=>
               Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>
-              RegistrationFire())),
+                  login())),
           skip: Text("Skip"),
           showSkipButton: true,
           next: Text("Next"),
           onDone: ()=>
               Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>
-              RegistrationFire())),
+              login())),
           done: Text("Done"),
           dotsDecorator: const DotsDecorator(
               size: Size(10, 10),

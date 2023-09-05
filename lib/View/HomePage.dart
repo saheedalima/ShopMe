@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:e_commerce/View/Widgets/NavDrawer.dart';
 import 'package:e_commerce/View/WishList.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -37,7 +38,10 @@ void main()async{
 
 class HomeApi extends StatelessWidget{
 
+
   ProductController productController = Get.put(ProductController());
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -45,7 +49,7 @@ class HomeApi extends StatelessWidget{
       return await showDialog(context: context, builder: (context){
         return AlertDialog(
           title: const Text("Exit From ShopMe"),
-          content: const Text("Do you really want to Exit"),
+          content: const Text("Do you really want to Exit!!"),
           actions: [
             Padding(
               padding: const EdgeInsets.only(left: 10,right: 10),
@@ -57,7 +61,7 @@ class HomeApi extends StatelessWidget{
                     SystemNavigator.pop();
                   },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey[500],
+                          backgroundColor: Color(0xFF11334B),
                           fixedSize: Size(70, 5)
                       ),
                       child: const Text("yes")),
@@ -65,7 +69,7 @@ class HomeApi extends StatelessWidget{
                     Navigator.of(context).pop(false);
                   },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey[500],
+                          backgroundColor: Color(0xFF11334B),
                           fixedSize: Size(70, 5)
                       ),
                       child: const Text("No")),

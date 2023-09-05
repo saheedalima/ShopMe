@@ -30,7 +30,7 @@ class Cart extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height*10,
+                height: MediaQuery.of(context).size.height*8,
                 child: ListView.builder(
                     itemCount: cartList.length,
                     itemBuilder: (context,index){

@@ -37,17 +37,30 @@ class splash extends StatefulWidget {
   State<splash> createState() => _splashState();
 }
 
-class _splashState extends State<splash> {
+class _splashState extends State<splash> with SingleTickerProviderStateMixin {
 
   User? user = FirebaseAuth.instance.currentUser;
 
+  Animation<double>? animation;
+  AnimationController? animationController;
+
   @override
   void initState() {
+    animationController =AnimationController(vsync: this,duration: Duration(seconds: 5));
+    animation= Tween<double>(begin: 12,end: 100).animate(animationController!)..addListener(() {
+      setState(() {
+        increasesize();
+      });
+    });
     Timer(Duration(seconds: 7), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder:
           (context) => user == null ? onboarding() :  HomeApi()));
     });
     super.initState();
+  }
+
+  void increasesize(){
+    animationController!.forward();
   }
 
   @override
@@ -57,7 +70,9 @@ class _splashState extends State<splash> {
         child: Container(
             height: 300,
             width: 300,
-            child: Lottie.asset("assets/animations/animation_ll73xktl.json",fit: BoxFit.fill)),
+          child: Image.asset("assets/images/ShopMe.jpg",
+            height: animation?.value,width: animation?.value,),
+        ),
       ),
     );
   }
